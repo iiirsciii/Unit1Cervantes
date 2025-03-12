@@ -5,10 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Private Variables
-    private float speed = 5.0f;
+    private float speed = 10.0f;
     private float turnSpeed = 25.0f;
     private float horizontal1Input;
     private float fowardInput;
+    public Camera mainCamera;
+    public Camera HoodCamera;
+    public KeyCode switchKey;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,12 @@ public class PlayerController : MonoBehaviour
         // We'll move this vecihle foward
         transform.Translate(Vector3.forward * Time.deltaTime * speed * fowardInput);
         // We turn the vehicle
-        transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontal1Input); 
+        transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontal1Input);
+
+        if(Input.GetKeyDown(switchKey))
+        {
+            mainCamera.enabled = !mainCamera.enabled;
+            HoodCamera.enabled = !HoodCamera.enabled;
+        }
     }
 }
