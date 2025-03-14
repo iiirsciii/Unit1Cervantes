@@ -10,9 +10,9 @@ public class PlayerController : MonoBehaviour
     private float horizontal1Input;
     private float fowardInput;
     public Camera mainCamera;
-    public Camera HoodCamera;
+    public Camera hoodCamera;
     public KeyCode switchKey;
-
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(switchKey))
         {
             mainCamera.enabled = !mainCamera.enabled;
-            HoodCamera.enabled = !HoodCamera.enabled;
-        }
+            hoodCamera.enabled = !hoodCamera.enabled;
+        } 
     }
 }
